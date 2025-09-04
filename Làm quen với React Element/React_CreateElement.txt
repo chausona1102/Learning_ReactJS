@@ -1,0 +1,52 @@
+const h1Dom = document.createElement('h1')
+h1Dom.title = 'Hello';
+h1Dom.className = 'heading';
+h1Dom.innerText = 'Hello guys!';
+
+const root = document.getElementById('root');
+
+root.appendChild(h1Dom)
+
+// React
+
+const h1React = React.createElement('h1', {
+    title: 'Hello',
+    className: 'heading',
+}, "Hello guys!");
+
+console.log(h1React)
+console.dir(h1Dom)
+
+
+// 
+const $ = document.createElement.bind(document);
+const root = document.getElementById('root');
+const ulDom = $('ul');
+const li1Dom = $('li');
+const li2Dom = $('li');
+li1Dom.innerText = "Javascript";
+li2Dom.innerText = 'ReactJS';
+
+root.appendChild(ulDom)
+ulDom.appendChild(li1Dom)
+ulDom.appendChild(li2Dom)
+console.log(ulDom)
+
+// React
+const ulReact = React.createElement(
+    'ul', 
+    {
+        id: 'ul-id',
+    },
+    React.createElement('li', {id: 'first', style: 'color: red;'}, 'Javascript'),
+    React.createElement('li', null, 'ReactJS'),
+)
+console.log(ulReact)
+
+
+// Ecersices
+    Write script to create with React:
+        <div class="post-item">
+            <h2 title="Học React tại F8">Học ReactJS</h2>
+            <p>Học ReactJs từ cơ bản tới nâng cao</p>
+        </div>
