@@ -1,0 +1,79 @@
+# Làm việc với JSX
+
+## Phần 1
+- Xử lý DOM events
+- Component do chúng ta định nghĩa phải viết in hoa chữ cái đầu
+    - Chọn component trong 1 object
+- Boolean, Null & Undefined không được render
+- Kêt hợp toán tử logic để render theo điều kiện
+
+## Phần 2
+- Props trong JSX 
+    <YourComponent
+        propName1="String literals"
+        propName2={expression}
+    />
+    - Props default to "true"
+    - Spread/Rest props
+    - Children prop
+        <YourComponent>String literals</YourComponent>
+        <YourComponent>{expression}</YourComponent>
+    - Render props
+
+
+  DOM-events
+  function PostItem({course, onClick}) {
+    return (
+      <div className="container">
+        <div className="row">
+          <img src={course.image_url} alt={course.title}/>
+          <h3 className="title" onClick={() => onClick(course)}>{course.title}</h3>
+          <div className="description">{course.description}</div>
+          <div className="students_count">{course.students_count}</div>
+        </div>
+      </div>
+    )
+  }
+
+  function App() {
+    const handleClick = (course) => {
+      console.log(course.title)
+    }
+    return (
+      <React.Fragment>
+        {courses.map(course => {
+          return (
+            <PostItem
+              key = {course.id}
+              course = {course}
+              onClick={handleClick}
+            />
+          )
+        }
+        )}
+      </React.Fragment>
+    )
+  }
+
+?? Phan I tiep theo
+<script type="text/babel">
+  const root = document.getElementById('root')
+    const Form = {
+      Input() {
+        return <input type='input'/>
+      },
+      Checkbox() {
+        return <input type="checkbox" />
+      }
+    }
+    function App() {  
+      const type = 'Checkbox';
+      const Component = Form[type];
+      return (
+        <React.Fragment>
+          <Component />
+          </React.Fragment>
+      )
+    }
+    ReactDOM.render(<App />, root)
+  </script>

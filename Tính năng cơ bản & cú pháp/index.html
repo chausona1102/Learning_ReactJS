@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReactJS</title>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<style>
+  .primary {
+    color: red;
+  }
+</style>
+<body>
+  <div id="root"></div>
+</body>
+<script src="script.js"></script>
+<script type="text/babel">
+  const root = document.getElementById('root')
+  function List({data, children}) {
+    return (
+      <ul> 
+        {data.map((...props) => children(...props))}
+      </ul>
+    )
+  }
+  function App() {
+    const cars = ['BMW', 'Mazda', "Toyota"]
+    return (
+      <React.Fragment>
+        <List data={cars}>
+          {(item, index) => <li key={index}>{item}</li>}
+        </List>
+
+      </React.Fragment>
+    )
+  } 
+  
+    ReactDOM.render(<App />, root)
+  </script>
+</html>

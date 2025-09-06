@@ -1,0 +1,55 @@
+# Lý thuyết
+    Props
+
+- React Elements
+    - Sử dụng props giống như với attribute của thẻ html
+    - 2 props class, for =>  className, htmlFor
+    - Phải tuân theo quy ước có sẵn
+- React components
+    - Sử dụng props giống như đối số cho function
+    - Tự do đặt trên Props
+        + Đặt theo camelCase
+        + * Có thể bao gồm dấu "-" (gạch ngang)
+- Chú ý
+    - Props "key" là props đặc biệt
+    - Props cơ bản là đối số của Component
+        => Props có thể bất cứ kiểu dữ liệu gì
+    - Sử dụng Destructuring
+
+
+## Code
+    ...
+
+<script type="text/babel">
+
+  function PostItem(props) { -- Component
+    return (
+      <div className="post-list"> -- React components
+        <div className="post-item">
+          <img src={props.image} alt=""></img>
+          <h2 className="post-title">{props.title}</h2>
+          <p className="post-desc">{props.description}</p>
+          <p className="post-hublished">{props.husblished}</p>
+        </div>
+      </div>
+    )
+  }
+  function App() { -- Component
+    return (
+      <div id="wrapper"> -- React Elements 
+        <PostItem 
+          title="C#(.NET)"
+          image="/"
+          description="Ban co kien thuc ngu"
+          husblished="Mot ngay truoc"
+        />
+        <PostItem  -- React Component
+          title="hi"
+        />
+      </div>
+    )
+  }
+  const root = document.getElementById('root');
+  ReactDOM.render(App(), root)
+
+</script>

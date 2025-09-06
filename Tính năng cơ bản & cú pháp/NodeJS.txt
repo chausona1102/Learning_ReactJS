@@ -1,0 +1,4 @@
+# NodeJS là gì?
+    - JS runtime. Môi trường độc lập để chạy JS.
+    Chrome's V8 Javascript Engine
+  

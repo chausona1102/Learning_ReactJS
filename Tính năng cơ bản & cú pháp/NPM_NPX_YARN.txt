@@ -1,0 +1,26 @@
+- NPM
+    - Project scope
+        + npm install react react-dom --save => dependencies
+        + npm i --save-dev react react-dom => devDependencies
+        + npm i -D react react-dom => devDependencies
+        + npm uninstall react react-dom
+    - Global scrope
+        + npm install -g create-react-app
+        + npm uninstall -g create-react-app
+            => Directory: C:\Users\PC\AppData\Roaming\npm
+- NPX
+    - Tại sao dùng NPX?
+        + Không cần cài đặt create-react-app
+        + Luôn dùng phiên bản mới nhất
+        + Tạo project nhanh hơn
+        + Không bị lỗi do xung đột phiên bản
+        + Giảm thiểu rác trong máy
+    - Cách dùng NPX
+        + npx create-react-app my-app
+        + npx create-react-app@latest my-app
+        + npx create-react-app@5.0.1 my-app
+    - Gặp lỗi khi: npx create-react-app tiktok
+- YARN & NPM
+- YARN install
+- Lưu ý:
+    - Luôn bật development server (npm start / yarn start)

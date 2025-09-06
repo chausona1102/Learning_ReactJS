@@ -1,0 +1,66 @@
+<script type="text/babel">
+  const root = document.getElementById('root')
+  function Input({ label, ...inputProps }) {
+    return (
+      <React.Fragment>
+        {label && <label>{label}</label>}
+        <input {...inputProps}></input>
+      </React.Fragment>
+    )
+  }
+  function App() {
+    return (
+      <Input
+        label='Label'
+        title='input'
+        type='input'
+        placeholder='Comment here!'
+      />
+    )
+  }
+
+  ReactDOM.render(<App />, root)
+</script>
+--Props
+
+<script type="text/babel">
+  const root = document.getElementById('root')
+  function Button({children}) {
+    console.log(children);
+    return <button>{children}</button>
+  }
+  function App() {
+    return (
+      <React.Fragment>
+        <Button>Click me!</Button>
+      </React.Fragment>
+    )
+  } 
+  
+    ReactDOM.render(<App />, root)
+  </script>
+--- children
+
+<script type="text/babel">
+  const root = document.getElementById('root')
+  function List({data, children}) {
+    return (
+      <ul> 
+        {data.map((...props) => children(...props))}
+      </ul>
+    )
+  }
+  function App() {
+    const cars = ['BMW', 'Mazda', "Toyota"]
+    return (
+      <React.Fragment>
+        <List data={cars}>
+          {(item, index) => <li key={index}>{item}</li>}
+        </List>
+
+      </React.Fragment>
+    )
+  } 
+  
+    ReactDOM.render(<App />, root)
+--- Spead - props
