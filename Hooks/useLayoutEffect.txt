@@ -1,0 +1,8 @@
+/** 
+useLayoutEffect
+    1. Cập nhật lại state
+    2. Cập nhật lại DOM (mutated)
+    3. Gọi cleanup nếu deps thay đổi (synce)
+    4. Gọi useLayoutEffect callback (sync)
+    5. Render lại UI
+*/

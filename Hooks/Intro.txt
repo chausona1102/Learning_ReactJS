@@ -1,0 +1,14 @@
+## Hooks - Gắn
+- Hooks là cái hàm đặc biệt trong React.
+- Hooks chỉ có thể sử dụng trong function component.
+- Hooks phải được gọi ở cấp cao nhất của function component.
+- Hooks không được gọi trong vòng lặp, điều kiện hoặc hàm lồng nhau.
+- Tên của Hooks phải bắt đầu bằng "use".
+- React cung cấp sẵn một số Hooks phổ biến:
+    + useState: Quản lý state trong function component.
+    + useEffect: Thực hiện các side effects (tác động phụ) trong function component.
+    + useContext: Sử dụng context trong function component.
+    + useRef: Tạo tham chiếu đến một phần tử DOM hoặc giá trị không thay đổi giữa các lần render.
+    + useReducer: Quản lý state phức tạp hơn với reducer.
+    + useMemo: Tối ưu hóa hiệu suất bằng cách ghi nhớ giá trị tính toán.
+    + useCallback: Tối ưu hóa hiệu suất bằng cách ghi nhớ hàm.  

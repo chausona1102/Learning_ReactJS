@@ -1,0 +1,152 @@
+# Khái niệm
+One-way binding : Ràng buộc 1 chiều
+    => thay đổi chỉ 1 trong 2 chiều (dữ liệu, rendering)
+    => thay đổi trong dữ liệu nhưng  render k thay đổi
+Two-way binding : Ràng buộc 2 chiều
+    => thay đổi cái này, cái kia kéo theo
+
+
+# Vidu check:radio
+
+import { useState } from "react";
+
+const courses = [
+  {
+    id: 1,
+    name: 'HTML, CSS'
+  },
+  {
+    id: 2,
+    name: 'Javascript'
+  },
+  {
+    id: 3,
+    name: 'PHP'
+  },
+
+]
+
+function App() {
+  const [checked, setChecked] = useState();
+  
+  const handleSubmit = () => {
+
+  }
+  return (
+    <div style={{ padding: 32 }}>
+      {courses.map(course => (
+        <div key={course.id}>
+          <input
+            type='radio'
+            checked = {checked === course.id}
+            onChange={() => setChecked(course.id)}
+          />
+          {course.name}
+        </div>
+      ))}
+      <button onClick={handleSubmit}>Register</button>
+    </div>
+  );
+}
+
+export default App;
+
+
+## vidu input:checkbox
+import { useState } from "react";
+
+const courses = [
+  {
+    id: 1,
+    name: 'HTML, CSS'
+  },
+  {
+    id: 2,
+    name: 'Javascript'
+  },
+  {
+    id: 3,
+    name: 'PHP'
+  },
+
+]
+
+function App() {
+  const [checked, setChecked] = useState([]);
+  
+  // console.log(checked)
+  const handleSubmit = () => {
+    console.log({ids: checked})
+  }
+  const handleCheck = (id) => {
+    setChecked(prev => {
+      const isChecked = prev.includes(id);
+      if(isChecked) {
+        return prev.filter(item => item !== id);
+      }else {
+        return [...prev, id]
+      }
+    
+    })
+  }
+  return (
+    <div style={{ padding: 32 }}>
+      {courses.map(course => (
+        <div key={course.id}>
+          <input
+            type='checkbox'
+            checked={checked.includes(course.id)}
+            onChange={() => handleCheck(course.id)}
+          />
+          {course.name}
+        </div>
+      ))}
+      <button onClick={handleSubmit}>Register</button>
+    </div>
+  );
+}
+
+export default App;
+
+# todolist 
+import { useState } from "react";
+
+
+function App() {
+  
+  const [job, setJob] = useState('');
+  const [jobs, setJobs] = useState(() => {
+    const storageJobs = JSON.parse(localStorage.getItem('Jobs')) ?? [];
+    console.log(storageJobs)
+    return storageJobs;
+  })
+  // console.log(job);
+  const handleSubmit = () => {
+    if(job === '') {
+      return;
+    }
+    setJobs(prev => {
+      const newJob = [...prev, job]
+      const jsonJobs = JSON.stringify(newJob);
+      localStorage.setItem('Jobs', jsonJobs)
+      return newJob;
+    });
+    setJob('');
+  }
+  return (
+    <div style={{ padding: 32 }}>
+      <input
+        value={job}
+        onChange={e => setJob(e.target.value)}
+      />
+      <button onClick={handleSubmit}>Add</button>
+      <ul>
+        {jobs.map((job, index) => (
+          <li key={index}>{job}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;

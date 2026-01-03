@@ -1,0 +1,25 @@
+Các kiến thức cần nắm trước khi học useEffect
+    + Events: add/ remove event listener
+    + Observer pattern: Subcribe / unsubcribe
+    + Closure
+    + Timers: setTimeout, setTimeInterval, clearTimeout, clearInterval
+    + useState
+    + Mounted / Unmounted
+    + ===
+    + Call API
+
+
+ /** 
+     useEffect(callback) => 1 tham số 
+     - Gọi callback mỗi khi re-render
+     - Gọi callback sau khi component thêm element vào DOM
+     useEffect(callback, [])  => 2 tham số: callback và [] rỗng
+     - Chỉ gọi lại callback 1 lần sau khi component mounted
+     - Ngăn chặn request trên trình duyệt
+     useEffect(callback, [deps]) => 2 tham số: callback và dependencies
+     - Callback sẽ được gọi lại mỗi khi deps thay đổi
+*/
+/**
+        1. Callback luôn luôn được gọi sau khi component mounted
+        2. Clearnup Function: được gọi trước khi component được unmounted
+        */
